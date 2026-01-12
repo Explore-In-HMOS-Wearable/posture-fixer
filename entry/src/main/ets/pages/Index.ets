@@ -6,7 +6,7 @@ import { vibrator } from '@kit.SensorServiceKit';
 struct HomePage {
   @State isRunning: boolean = false;
   @State remaining: number = 0;
-  @State showImage: boolean = false;
+  private showImage: boolean = false;
   private timerId: number = 0;
   pathStack: NavPathStack = new NavPathStack();
 
@@ -15,8 +15,10 @@ struct HomePage {
   }
 
   startTimer() {
-    if (this.isRunning) return;
+    if (this.isRunning){
     this.isRunning = true;
+      return;
+    };
 
     this.timerId = setInterval(() => {
       if (this.remaining > 0) {
@@ -35,7 +37,7 @@ struct HomePage {
   triggerReminder() {
     console.info('Vibration triggered');
     //vibration API here
-
+    this.showImage = true;
     this.remaining = settingsData.interval * 60;
   }
 
@@ -94,5 +96,6 @@ Navigation(this.pathStack){
     .hideBackButton(true)
     .hideToolBar(true)
     .mode(NavigationMode.Stack)
+
   }
 }

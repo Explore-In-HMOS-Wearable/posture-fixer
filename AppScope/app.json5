@@ -1,6 +1,6 @@
 {
   "app": {
-    "bundleName": "com.hmosdemos.posturefixer",
+    "bundleName": "com.hmosdemos.wearable.posture_fixer",
     "vendor": "hmosdemos",
     "versionCode": 1000000,
     "versionName": "1.0.0",
